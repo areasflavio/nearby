@@ -14,6 +14,7 @@
 		F78597FF2D104CB800B9155E /* NearbyFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78597FE2D104CB800B9155E /* NearbyFlowCoordinator.swift */; };
 		F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980A2D1054E100B9155E /* NearbySplashVC.swift */; };
 		F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980C2D10551800B9155E /* NearbySplashView.swift */; };
+		F78598112D10583C00B9155E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78598102D10583C00B9155E /* Colors.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		F78597FE2D104CB800B9155E /* NearbyFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyFlowCoordinator.swift; sourceTree = "<group>"; };
 		F785980A2D1054E100B9155E /* NearbySplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashVC.swift; sourceTree = "<group>"; };
 		F785980C2D10551800B9155E /* NearbySplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashView.swift; sourceTree = "<group>"; };
+		F78598102D10583C00B9155E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +60,11 @@
 		F78597E82D104C1100B9155E /* Nearby */ = {
 			isa = PBXGroup;
 			children = (
+				F78598122D1058E100B9155E /* Resources */,
 				F78597FD2D104CA300B9155E /* Sources */,
 				F78597E92D104C1100B9155E /* AppDelegate.swift */,
 				F78597EB2D104C1100B9155E /* SceneDelegate.swift */,
 				F78597ED2D104C1100B9155E /* ViewController.swift */,
-				F78597F22D104C1300B9155E /* Assets.xcassets */,
 				F78597F72D104C1300B9155E /* Info.plist */,
 			);
 			path = Nearby;
@@ -71,8 +73,8 @@
 		F78597FD2D104CA300B9155E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				F78598082D1054B400B9155E /* Scenes */,
-				F78598072D1054A700B9155E /* Coordinator */,
+				F785980F2D10581F00B9155E /* Features */,
+				F785980E2D10581800B9155E /* Constants */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -100,6 +102,31 @@
 				F785980C2D10551800B9155E /* NearbySplashView.swift */,
 			);
 			path = Splash;
+			sourceTree = "<group>";
+		};
+		F785980E2D10581800B9155E /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				F78598102D10583C00B9155E /* Colors.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		F785980F2D10581F00B9155E /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				F78598072D1054A700B9155E /* Coordinator */,
+				F78598082D1054B400B9155E /* Scenes */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		F78598122D1058E100B9155E /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F78597F22D104C1300B9155E /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -174,6 +201,7 @@
 				F78597FF2D104CB800B9155E /* NearbyFlowCoordinator.swift in Sources */,
 				F78597EE2D104C1100B9155E /* ViewController.swift in Sources */,
 				F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */,
+				F78598112D10583C00B9155E /* Colors.swift in Sources */,
 				F78597EA2D104C1100B9155E /* AppDelegate.swift in Sources */,
 				F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */,
 				F78597EC2D104C1100B9155E /* SceneDelegate.swift in Sources */,

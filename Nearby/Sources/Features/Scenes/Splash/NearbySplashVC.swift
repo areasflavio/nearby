@@ -28,7 +28,7 @@ class NearbySplashVC: UIViewController {
     private func configure() {
         view.addSubview(contentView)
         navigationController?.navigationBar.isHidden = true
-        self.view.backgroundColor = UIColor(red: 59/255, green: 155/255, blue: 98/255, alpha: 1)
+        self.view.backgroundColor = Colors.greenLight
         
         configureUI()
     }
@@ -37,10 +37,10 @@ class NearbySplashVC: UIViewController {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            contentView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            contentView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            contentView.topAnchor.constraint(equalTo: view.topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
