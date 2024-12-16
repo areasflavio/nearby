@@ -10,13 +10,13 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-    var flowController: FlowCoordinator?
+    var flowController: NearbyFlowCoordinator?
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = (scene as? UIWindowScene) else { return }        
         let window = UIWindow(windowScene: windowScene)
         
-        self.flowController = FlowCoordinator()
+        self.flowController = NearbyFlowCoordinator()
         let rootViewController = flowController?.configure()
         
         window.rootViewController = rootViewController

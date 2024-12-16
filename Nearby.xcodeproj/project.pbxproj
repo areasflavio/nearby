@@ -11,7 +11,9 @@
 		F78597EC2D104C1100B9155E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78597EB2D104C1100B9155E /* SceneDelegate.swift */; };
 		F78597EE2D104C1100B9155E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78597ED2D104C1100B9155E /* ViewController.swift */; };
 		F78597F32D104C1300B9155E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F78597F22D104C1300B9155E /* Assets.xcassets */; };
-		F78597FF2D104CB800B9155E /* FlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78597FE2D104CB800B9155E /* FlowCoordinator.swift */; };
+		F78597FF2D104CB800B9155E /* NearbyFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78597FE2D104CB800B9155E /* NearbyFlowCoordinator.swift */; };
+		F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980A2D1054E100B9155E /* NearbySplashVC.swift */; };
+		F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980C2D10551800B9155E /* NearbySplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,7 +23,9 @@
 		F78597ED2D104C1100B9155E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F78597F22D104C1300B9155E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F78597F72D104C1300B9155E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F78597FE2D104CB800B9155E /* FlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowCoordinator.swift; sourceTree = "<group>"; };
+		F78597FE2D104CB800B9155E /* NearbyFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbyFlowCoordinator.swift; sourceTree = "<group>"; };
+		F785980A2D1054E100B9155E /* NearbySplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashVC.swift; sourceTree = "<group>"; };
+		F785980C2D10551800B9155E /* NearbySplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,9 +71,35 @@
 		F78597FD2D104CA300B9155E /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				F78597FE2D104CB800B9155E /* FlowCoordinator.swift */,
+				F78598082D1054B400B9155E /* Scenes */,
+				F78598072D1054A700B9155E /* Coordinator */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		F78598072D1054A700B9155E /* Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				F78597FE2D104CB800B9155E /* NearbyFlowCoordinator.swift */,
+			);
+			path = Coordinator;
+			sourceTree = "<group>";
+		};
+		F78598082D1054B400B9155E /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				F78598092D1054BA00B9155E /* Splash */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		F78598092D1054BA00B9155E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				F785980A2D1054E100B9155E /* NearbySplashVC.swift */,
+				F785980C2D10551800B9155E /* NearbySplashView.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,9 +171,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F78597FF2D104CB800B9155E /* FlowCoordinator.swift in Sources */,
+				F78597FF2D104CB800B9155E /* NearbyFlowCoordinator.swift in Sources */,
 				F78597EE2D104C1100B9155E /* ViewController.swift in Sources */,
+				F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */,
 				F78597EA2D104C1100B9155E /* AppDelegate.swift in Sources */,
+				F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */,
 				F78597EC2D104C1100B9155E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

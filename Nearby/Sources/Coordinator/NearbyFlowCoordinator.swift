@@ -7,16 +7,15 @@
 
 import UIKit
 
-class FlowCoordinator {
+class NearbyFlowCoordinator {
     
     private var navigationController: UINavigationController?
     
-    init() {
-    }
+    init() { }
     
     func configure() -> UINavigationController? {
-        let startViewController = UIViewController()
-        startViewController.view.backgroundColor = .systemPink
+        let contentView = NearbySplashView()
+        let startViewController = NearbySplashVC(contentView: contentView)
         
         self.navigationController = UINavigationController(rootViewController: startViewController)
         return navigationController
