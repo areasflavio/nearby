@@ -15,6 +15,10 @@
 		F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980A2D1054E100B9155E /* NearbySplashVC.swift */; };
 		F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980C2D10551800B9155E /* NearbySplashView.swift */; };
 		F78598112D10583C00B9155E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78598102D10583C00B9155E /* Colors.swift */; };
+		F797AC0A2D11A23D004F8F5B /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F797AC092D11A23D004F8F5B /* TipsView.swift */; };
+		F797AC0D2D11A5BE004F8F5B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F797AC0C2D11A5BE004F8F5B /* WelcomeView.swift */; };
+		F7E4F2682D12149100029185 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F2672D12149100029185 /* WelcomeVC.swift */; };
+		F7E4F26B2D12180B00029185 /* UIViewController+EXT.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F26A2D12180B00029185 /* UIViewController+EXT.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +32,10 @@
 		F785980A2D1054E100B9155E /* NearbySplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashVC.swift; sourceTree = "<group>"; };
 		F785980C2D10551800B9155E /* NearbySplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashView.swift; sourceTree = "<group>"; };
 		F78598102D10583C00B9155E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F797AC092D11A23D004F8F5B /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
+		F797AC0C2D11A5BE004F8F5B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
+		F7E4F2672D12149100029185 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
+		F7E4F26A2D12180B00029185 /* UIViewController+EXT.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+EXT.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +98,7 @@
 		F78598082D1054B400B9155E /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				F797AC0B2D11A5B0004F8F5B /* Welcome */,
 				F78598092D1054BA00B9155E /* Splash */,
 			);
 			path = Scenes;
@@ -115,6 +124,8 @@
 		F785980F2D10581F00B9155E /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				F7E4F2692D1217F500029185 /* Extensions */,
+				F797AC082D11A22A004F8F5B /* Components */,
 				F78598072D1054A700B9155E /* Coordinator */,
 				F78598082D1054B400B9155E /* Scenes */,
 			);
@@ -127,6 +138,31 @@
 				F78597F22D104C1300B9155E /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		F797AC082D11A22A004F8F5B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				F797AC092D11A23D004F8F5B /* TipsView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		F797AC0B2D11A5B0004F8F5B /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				F797AC0C2D11A5BE004F8F5B /* WelcomeView.swift */,
+				F7E4F2672D12149100029185 /* WelcomeVC.swift */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
+		F7E4F2692D1217F500029185 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F7E4F26A2D12180B00029185 /* UIViewController+EXT.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -199,9 +235,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				F78597FF2D104CB800B9155E /* NearbyFlowCoordinator.swift in Sources */,
+				F7E4F2682D12149100029185 /* WelcomeVC.swift in Sources */,
 				F78597EE2D104C1100B9155E /* ViewController.swift in Sources */,
 				F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */,
 				F78598112D10583C00B9155E /* Colors.swift in Sources */,
+				F797AC0D2D11A5BE004F8F5B /* WelcomeView.swift in Sources */,
+				F797AC0A2D11A23D004F8F5B /* TipsView.swift in Sources */,
+				F7E4F26B2D12180B00029185 /* UIViewController+EXT.swift in Sources */,
 				F78597EA2D104C1100B9155E /* AppDelegate.swift in Sources */,
 				F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */,
 				F78597EC2D104C1100B9155E /* SceneDelegate.swift in Sources */,
