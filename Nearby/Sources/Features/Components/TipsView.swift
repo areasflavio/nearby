@@ -31,6 +31,7 @@ class TipsView: UIView {
     
     private func configure(icon: UIImage, title: String, description: String) {
         iconImageView.image = icon
+        iconImageView.tintColor = Colors.redBase
         titleLabel.text = title
         descriptionLabel.text = description
         
