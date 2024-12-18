@@ -30,11 +30,19 @@ class PlaceTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    private func configure(with place: Place) {
-        itemImage.image = UIImage(named: place.imageName)
-        titleLabel.text = place.title
+    func configure(with place: Place) {
+        if let url = URL(string: place.cover) {
+            URLSession.shared.dataTask(with: url) { data, _, _ in
+                if let data, let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self.itemImage.image = image
+                    }
+                }
+            }.resume()
+        }
+        titleLabel.text = place.name
         descriptionLabel.text = place.description
-        ticketLabel.text = "\(place.tickets) cupons disponíveis"
+        ticketLabel.text = "\(place.coupons) cupons disponíveis"
     }
     
     private func configureUI() {
@@ -44,7 +52,6 @@ class PlaceTableViewCell: UITableViewCell {
         containerView.addSubview(ticketIcon)
         containerView.addSubview(ticketLabel)
         addSubview(containerView)
-        
         
         configureContainer()
         configureImage()
@@ -58,6 +65,7 @@ class PlaceTableViewCell: UITableViewCell {
         containerView.layer.cornerRadius = 8
         containerView.layer.borderWidth = 1
         containerView.layer.borderColor = Colors.gray200.cgColor
+        containerView.backgroundColor = Colors.gray100
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
@@ -76,7 +84,7 @@ class PlaceTableViewCell: UITableViewCell {
         
         NSLayoutConstraint.activate([
             itemImage.centerYAnchor.constraint(equalTo: containerView.centerYAnchor),
-            itemImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor, constant: padding),
+            itemImage.leadingAnchor.constraint(equalTo: containerView.leadingAnchor),
             itemImage.widthAnchor.constraint(equalToConstant: 116),
             itemImage.heightAnchor.constraint(equalToConstant: 104)
         ])
@@ -87,24 +95,24 @@ class PlaceTableViewCell: UITableViewCell {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: itemImage.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant: padding),
-            titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            titleLabel.topAnchor.constraint(equalTo: containerView.topAnchor, constant: padding),
+            titleLabel.leadingAnchor.constraint(equalTo: itemImage.trailingAnchor, constant: 16),
+            titleLabel.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -padding),
             titleLabel.heightAnchor.constraint(equalToConstant: 18)
         ])
     }
     
     private func configureDescription() {
-        descriptionLabel.font = Typography.textSM
+        descriptionLabel.font = Typography.textXS
         descriptionLabel.numberOfLines = 0
-        descriptionLabel.textColor = Colors.gray300
+        descriptionLabel.textColor = Colors.gray500
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: titleLabel.trailingAnchor),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 16)
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 36)
         ])
     }
     
@@ -115,8 +123,8 @@ class PlaceTableViewCell: UITableViewCell {
         ticketIcon.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            ticketIcon.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: padding),
-            ticketIcon.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -padding),
+            ticketIcon.leadingAnchor.constraint(equalTo: descriptionLabel.leadingAnchor),
+            ticketIcon.bottomAnchor.constraint(equalTo: containerView.bottomAnchor, constant: -padding),
             ticketIcon.heightAnchor.constraint(equalToConstant: 14),
             ticketIcon.widthAnchor.constraint(equalToConstant: 14)
         ])
@@ -124,24 +132,14 @@ class PlaceTableViewCell: UITableViewCell {
     
     private func configureTicketLabel() {
         ticketLabel.font = Typography.textXS
+        ticketLabel.textColor = Colors.gray400
         ticketLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
+            ticketLabel.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
             ticketLabel.centerYAnchor.constraint(equalTo: ticketIcon.centerYAnchor),
             ticketLabel.leadingAnchor.constraint(equalTo: ticketIcon.trailingAnchor, constant: 4),
             ticketLabel.trailingAnchor.constraint(equalTo: descriptionLabel.trailingAnchor)
         ])
     }
-
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
-
 }
