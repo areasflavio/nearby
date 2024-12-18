@@ -12,8 +12,11 @@ class WelcomeView: UIView {
     let logoImageView = UIImageView()
     let welcomeLabel = UILabel()
     let descriptionLabel = UILabel()
+    let subTextForTips = UILabel()
     let tipsStackView = UIStackView()
     let button = UIButton()
+    
+    let padding: CGFloat = 24
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,12 +32,16 @@ class WelcomeView: UIView {
         addSubview(logoImageView)
         addSubview(welcomeLabel)
         addSubview(descriptionLabel)
+        addSubview(subTextForTips)
         addSubview(tipsStackView)
+        addSubview(button)
         
         configureImage()
         configureLabel()
         configureDescription()
+        configureSubText()
         configureStack()
+        configureTips()
         configureButton()
     }
     
@@ -44,8 +51,8 @@ class WelcomeView: UIView {
         logoImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 4),
-            logoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
+            logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: 16),
+            logoImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             logoImageView.heightAnchor.constraint(equalToConstant: 48),
             logoImageView.widthAnchor.constraint(equalToConstant: 48),
         ])
@@ -53,38 +60,55 @@ class WelcomeView: UIView {
     
     private func configureLabel() {
         welcomeLabel.text = "Boas vindas ao Nearby"
+        welcomeLabel.font = Typography.titleXL
+        welcomeLabel.numberOfLines = 0
         welcomeLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            welcomeLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: 8),
-            welcomeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
-            welcomeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
+            welcomeLabel.topAnchor.constraint(equalTo: logoImageView.bottomAnchor, constant: padding),
+            welcomeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            welcomeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             welcomeLabel.heightAnchor.constraint(equalToConstant: 24),
         ])
     }
     
     private func configureDescription() {
         descriptionLabel.text = "Tenha cupons de vantagem para user em seus estabelecimentos favoritos."
+        descriptionLabel.numberOfLines = 0
+        descriptionLabel.font = Typography.textMD
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             descriptionLabel.topAnchor.constraint(equalTo: welcomeLabel.bottomAnchor, constant: 8),
-            descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 4),
-            descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -4),
-            descriptionLabel.heightAnchor.constraint(equalToConstant: 48),
+            descriptionLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            descriptionLabel.heightAnchor.constraint(equalToConstant: 64),
+        ])
+    }
+    
+    private func configureSubText() {
+        subTextForTips.text = "Veja como funciona:"
+        subTextForTips.numberOfLines = 0
+        subTextForTips.font = Typography.textMD
+        subTextForTips.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            subTextForTips.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: padding),
+            subTextForTips.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            subTextForTips.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            subTextForTips.heightAnchor.constraint(equalToConstant: 24),
         ])
     }
     
     private func configureStack() {
-        tipsStackView.spacing = 16
+        tipsStackView.spacing = 24
         tipsStackView.axis = .vertical
         tipsStackView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            tipsStackView.topAnchor.constraint(equalTo: descriptionLabel.bottomAnchor, constant: 8),
-            tipsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-            tipsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8),
-            tipsStackView.bottomAnchor.constraint(equalTo: button.topAnchor),
+            tipsStackView.topAnchor.constraint(equalTo: subTextForTips.bottomAnchor, constant: padding),
+            tipsStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            tipsStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding)
         ])
     }
     
@@ -102,14 +126,15 @@ class WelcomeView: UIView {
         button.setTitle("Começar", for: .normal)
         button.backgroundColor = Colors.greenBase
         button.setTitleColor(Colors.gray100, for: .normal)
+        button.titleLabel?.font = Typography.action
         button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8),
-            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 8),
-            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -8 ),
-            button.heightAnchor.constraint(equalToConstant: 48),
+            button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -padding),
+            button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
+            button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
+            button.heightAnchor.constraint(equalToConstant: 56),
         ])
     }
 }

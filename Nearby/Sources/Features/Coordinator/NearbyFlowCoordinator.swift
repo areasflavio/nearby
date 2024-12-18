@@ -15,9 +15,18 @@ class NearbyFlowCoordinator {
     
     func configure() -> UINavigationController? {
         let contentView = NearbySplashView()
-        let startViewController = NearbySplashVC(contentView: contentView)
+        let startViewController = NearbySplashVC(contentView: contentView, delegate: self)
         
         self.navigationController = UINavigationController(rootViewController: startViewController)
         return navigationController
+    }
+}
+
+extension NearbyFlowCoordinator: SplashFlowDelegate {
+    
+    func decideNavigationFlow() {
+        let contentView = WelcomeView()
+        let welcomeViewController = WelcomeVC(contentView: contentView)
+        navigationController?.pushViewController(welcomeViewController, animated: true)
     }
 }

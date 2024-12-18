@@ -15,6 +15,8 @@
 		F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980A2D1054E100B9155E /* NearbySplashVC.swift */; };
 		F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F785980C2D10551800B9155E /* NearbySplashView.swift */; };
 		F78598112D10583C00B9155E /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78598102D10583C00B9155E /* Colors.swift */; };
+		F78B20342D12E3190002C835 /* SplashFlowDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B20332D12E3190002C835 /* SplashFlowDelegate.swift */; };
+		F78B20362D12E8050002C835 /* Typography.swift in Sources */ = {isa = PBXBuildFile; fileRef = F78B20352D12E8050002C835 /* Typography.swift */; };
 		F797AC0A2D11A23D004F8F5B /* TipsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F797AC092D11A23D004F8F5B /* TipsView.swift */; };
 		F797AC0D2D11A5BE004F8F5B /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F797AC0C2D11A5BE004F8F5B /* WelcomeView.swift */; };
 		F7E4F2682D12149100029185 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E4F2672D12149100029185 /* WelcomeVC.swift */; };
@@ -32,6 +34,8 @@
 		F785980A2D1054E100B9155E /* NearbySplashVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashVC.swift; sourceTree = "<group>"; };
 		F785980C2D10551800B9155E /* NearbySplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NearbySplashView.swift; sourceTree = "<group>"; };
 		F78598102D10583C00B9155E /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		F78B20332D12E3190002C835 /* SplashFlowDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashFlowDelegate.swift; sourceTree = "<group>"; };
+		F78B20352D12E8050002C835 /* Typography.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Typography.swift; sourceTree = "<group>"; };
 		F797AC092D11A23D004F8F5B /* TipsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TipsView.swift; sourceTree = "<group>"; };
 		F797AC0C2D11A5BE004F8F5B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		F7E4F2672D12149100029185 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
@@ -109,6 +113,7 @@
 			children = (
 				F785980A2D1054E100B9155E /* NearbySplashVC.swift */,
 				F785980C2D10551800B9155E /* NearbySplashView.swift */,
+				F78B20332D12E3190002C835 /* SplashFlowDelegate.swift */,
 			);
 			path = Splash;
 			sourceTree = "<group>";
@@ -117,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				F78598102D10583C00B9155E /* Colors.swift */,
+				F78B20352D12E8050002C835 /* Typography.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -239,11 +245,13 @@
 				F78597EE2D104C1100B9155E /* ViewController.swift in Sources */,
 				F785980D2D10551800B9155E /* NearbySplashView.swift in Sources */,
 				F78598112D10583C00B9155E /* Colors.swift in Sources */,
+				F78B20342D12E3190002C835 /* SplashFlowDelegate.swift in Sources */,
 				F797AC0D2D11A5BE004F8F5B /* WelcomeView.swift in Sources */,
 				F797AC0A2D11A23D004F8F5B /* TipsView.swift in Sources */,
 				F7E4F26B2D12180B00029185 /* UIViewController+EXT.swift in Sources */,
 				F78597EA2D104C1100B9155E /* AppDelegate.swift in Sources */,
 				F785980B2D1054E100B9155E /* NearbySplashVC.swift in Sources */,
+				F78B20362D12E8050002C835 /* Typography.swift in Sources */,
 				F78597EC2D104C1100B9155E /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

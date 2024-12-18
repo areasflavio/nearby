@@ -10,10 +10,12 @@ import UIKit
 class NearbySplashVC: UIViewController {
     
     var contentView: NearbySplashView!
+    weak var delegate: SplashFlowDelegate?
     
-    init(contentView: NearbySplashView) {
+    init(contentView: NearbySplashView, delegate: SplashFlowDelegate) {
         super.init(nibName: nil, bundle: nil)
         self.contentView = contentView
+        self.delegate = delegate
     }
     
     required init?(coder: NSCoder) {
@@ -23,6 +25,7 @@ class NearbySplashVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configure()
+        decideFlow()
     }
     
     private func configure() {
@@ -42,5 +45,11 @@ class NearbySplashVC: UIViewController {
             contentView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+    
+    private func decideFlow() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) { [weak self] in
+            self?.delegate?.decideNavigationFlow()
+        }
     }
 }

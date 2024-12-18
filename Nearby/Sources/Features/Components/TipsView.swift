@@ -60,25 +60,28 @@ class TipsView: UIView {
     }
     
     private func configureTitle() {
+        titleLabel.font = Typography.titleSM
+        titleLabel.numberOfLines = 0
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             titleLabel.topAnchor.constraint(equalTo: iconImageView.topAnchor),
-            titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 8),
+            titleLabel.leadingAnchor.constraint(equalTo: iconImageView.trailingAnchor, constant: 16),
             titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            titleLabel.heightAnchor.constraint(equalToConstant: 24),
+            titleLabel.heightAnchor.constraint(equalToConstant: 16),
         ])
     }
     
     private func configureDescription() {
+        descriptionLabel.font = Typography.textSM
+        descriptionLabel.numberOfLines = 0
         descriptionLabel.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.topAnchor, constant: 4),
+            descriptionLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 4),
             descriptionLabel.leadingAnchor.constraint(equalTo: titleLabel.leadingAnchor),
             descriptionLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             descriptionLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor)
         ])
     }
-
 }
