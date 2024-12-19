@@ -115,5 +115,9 @@ extension HomeVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        
+        let details = DetailVC()
+        details.place = places[indexPath.row]
+        navigationController?.pushViewController(details, animated: true)
     }
 }

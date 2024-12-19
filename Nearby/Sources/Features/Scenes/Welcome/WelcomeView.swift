@@ -9,6 +9,8 @@ import UIKit
 
 class WelcomeView: UIView {
     
+    var didTapButton: (() -> Void?)?
+    
     let logoImageView = UIImageView()
     let welcomeLabel = UILabel()
     let descriptionLabel = UILabel()
@@ -130,11 +132,17 @@ class WelcomeView: UIView {
         button.layer.cornerRadius = 8
         button.translatesAutoresizingMaskIntoConstraints = false
         
+        button.addTarget(self, action: #selector(didTap), for: .touchUpInside)
+        
         NSLayoutConstraint.activate([
             button.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -padding),
             button.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: padding),
             button.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -padding),
             button.heightAnchor.constraint(equalToConstant: 56),
         ])
+    }
+    
+    @objc private func didTap() {
+        didTapButton?()
     }
 }

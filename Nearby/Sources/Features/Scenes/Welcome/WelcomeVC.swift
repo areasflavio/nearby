@@ -10,10 +10,17 @@ import UIKit
 class WelcomeVC: UIViewController {
     
     var contentView: WelcomeView!
+    weak var flowDelegate: WelcomeFlowDelegate?
     
     init(contentView: WelcomeView) {
         super.init(nibName: nil, bundle: nil)
         self.contentView = contentView
+        
+        contentView.didTapButton = { [weak self] in
+            guard let self else { return }
+            
+            self.flowDelegate?.goToHome()            
+        }
     }
     
     required init?(coder: NSCoder) {
