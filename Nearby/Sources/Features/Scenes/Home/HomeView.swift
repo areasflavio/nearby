@@ -73,7 +73,7 @@ class HomeView: UIView {
         filterScrollView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            filterScrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: 80),
+            filterScrollView.topAnchor.constraint(equalTo: self.topAnchor, constant: 64),
             filterScrollView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 24),
             filterScrollView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
             filterScrollView.heightAnchor.constraint(equalTo: filterStackView.heightAnchor)
@@ -169,6 +169,7 @@ class HomeView: UIView {
             "Compras" : "cart",
             "Hospedagem" : "bed.double",
             "Padaria" : "cup.and.saucer",
+            "Cinema": "movieclapper"
         ]
         
         self.categories = categories
@@ -218,7 +219,7 @@ class HomeView: UIView {
             previousButton.tintColor = Colors.gray600
         }
         
-        button.backgroundColor = Colors.purpleBase
+        button.backgroundColor = Colors.greenBase
         button.setTitleColor(Colors.gray100, for: .normal)
         button.tintColor = Colors.gray100
         
