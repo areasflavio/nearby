@@ -83,6 +83,7 @@ class HomeView: UIView {
     private func configureStackView() {
         filterStackView.axis = .horizontal
         filterStackView.spacing = 8
+        filterStackView.alignment = .center
         filterStackView.isUserInteractionEnabled = true
         filterStackView.distribution = .fill
         filterStackView.translatesAutoresizingMaskIntoConstraints = false
@@ -198,16 +199,15 @@ class HomeView: UIView {
         button.backgroundColor = Colors.gray100
         button.setTitleColor(Colors.gray600, for: .normal)
         button.titleLabel?.font = Typography.textSM
-        button.heightAnchor.constraint(equalToConstant: 36).isActive = true
         button.imageView?.contentMode = .scaleAspectFit
-        button.imageView?.heightAnchor.constraint(equalToConstant: 13).isActive = true
-        button.imageView?.widthAnchor.constraint(equalToConstant: 13).isActive = true
-        button.imageEdgeInsets = UIEdgeInsets(top: 4, left: 4, bottom: 4, right: 8)
-        button.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 0)
+        button.setContentCompressionResistancePriority(.required, for: .horizontal)
+        button.setContentHuggingPriority(.defaultLow, for: .horizontal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
-        filterStackView.isLayoutMarginsRelativeArrangement = true
-        filterStackView.layoutMargins = UIEdgeInsets(top: 2, left: 0, bottom: 2, right: 0)
+        NSLayoutConstraint.activate([
+            button.heightAnchor.constraint(equalToConstant: 36),
+            button.widthAnchor.constraint(greaterThanOrEqualToConstant: button.intrinsicContentSize.width + 16)
+        ])
         
         return button
     }
