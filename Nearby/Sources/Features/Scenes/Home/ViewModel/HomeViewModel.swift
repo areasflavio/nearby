@@ -10,8 +10,8 @@ import CoreLocation
 
 class HomeViewModel {
     
-    //    private let baseURL = "http://127.0.0.1:3333" //url do backend - API
-    private let baseURL = "http://192.168.3.6:3333" //ip da interface de rede do server - ifconfig: en0 Mac
+    //    private let baseURL = "http://127.0.0.1:3333"
+    private let baseURL = "http://192.168.3.6:3333"
     var userLatitude: CLLocationDegrees = -23.561187293883442
     var userLongitude: CLLocationDegrees = -46.656451388116494
     var places: [Place] = []

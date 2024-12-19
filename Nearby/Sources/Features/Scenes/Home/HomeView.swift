@@ -22,12 +22,13 @@ class HomeView: UIView {
     let containerView = UIView()
     let placesTableView = UITableView()
     
-    var containerTopContraint: NSLayoutConstraint!
+    var containerTopConstraint: NSLayoutConstraint!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
         configureUI()
+        setupPanGesture()
     }
     
     required init?(coder: NSCoder) {
@@ -35,6 +36,7 @@ class HomeView: UIView {
     }
     
     private func configureUI() {
+        backgroundColor = Colors.gray300
         addSubview(mapView)
         addSubview(filterScrollView)
         addSubview(containerView)
@@ -124,6 +126,8 @@ class HomeView: UIView {
     private func configureContainerView() {
         containerView.clipsToBounds = true
         containerView.layer.cornerRadius = 16
+        containerView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+        containerView.layer.masksToBounds = true
         containerView.backgroundColor = Colors.gray100
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -133,8 +137,8 @@ class HomeView: UIView {
             containerView.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
         
-        containerTopContraint = containerView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -16)
-        containerTopContraint.isActive = true
+        containerTopConstraint = containerView.topAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -16)
+        containerTopConstraint.isActive = true
     }
     
     private func configureTableView() {
@@ -147,6 +151,11 @@ class HomeView: UIView {
             placesTableView.trailingAnchor.constraint(equalTo: containerView.trailingAnchor, constant: -24),
             placesTableView.bottomAnchor.constraint(equalTo: containerView.bottomAnchor)
         ])
+    }
+    
+    func setupPanGesture() {
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePanGesture(_:)))
+        containerView.addGestureRecognizer(panGesture)
     }
     
     func configureTableViewDelegate(_ delegate: UITableViewDelegate, dataSource: UITableViewDataSource) {
@@ -225,6 +234,36 @@ class HomeView: UIView {
     func reloadTableViewData() {
         DispatchQueue.main.async {
             self.placesTableView.reloadData()
+        }
+    }
+    
+    @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
+        let translation = gesture.translation(in: self)
+        let velocity = gesture.velocity(in: self)
+        
+        switch gesture.state {
+        case .changed:
+            let newConstant = containerTopConstraint.constant + translation.y
+            if newConstant <= 0 && newConstant >= frame.height * 0.5 {
+                containerTopConstraint.constant = newConstant
+                gesture.setTranslation(.zero, in: self)
+            }
+        case .ended:
+            let halfScreenHeight = -frame.height * 0.25
+            let finalPosition: CGFloat
+            
+            if velocity.y > 0 {
+                finalPosition = 0
+            } else {
+                finalPosition = halfScreenHeight
+            }
+            
+            UIView.animate(withDuration: 0.3, animations: {
+                self.containerTopConstraint.constant = finalPosition
+                self.layoutIfNeeded()
+            })
+        default:
+            break
         }
     }
 }
